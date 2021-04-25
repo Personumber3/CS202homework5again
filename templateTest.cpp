@@ -542,6 +542,8 @@ void test_templates(Tester & t)
 
 // main
 int main() {
+
+    /*
     Tester t;
     test_templates(t);
 
@@ -557,6 +559,7 @@ int main() {
 
     std::cout << "Press ENTER to quit ";
     while (std::cin.get() != '\n');
+    */
 
     int n = 5;
     // std::cout << "recursive version " << fib(n) << " loop version: " << fib_loop(n) << std::endl;
@@ -573,48 +576,37 @@ int main() {
     std::chrono::duration<double> diff = end-start;
     std::cout << "m,n = " << m << n << " result = " << number <<" duration " << diff.count() << std::endl;
 
-
     for(int i = 0; i < 4; ++i){
-        for(int j = 0; j<4; ++j){
-
+        for(int j = 0; j < 5; ++j){
+            m = i;
+            n = j;
+            start = std::chrono::steady_clock::now();
+            number = ack(m,n);
+            end = std::chrono::steady_clock::now();
+            diff = end-start;
+            std::cout << "m,n = " << m << n << " result = " << number << " duration " << diff.count() << " seconds" << std::endl;
         }
     }
-    m = 1;
+    m = 4;
+    n = 0;
     start = std::chrono::steady_clock::now();
-    end = std::chrono::steady_clock::now();
     number = ack(m,n);
+    end = std::chrono::steady_clock::now();
     diff = end-start;
-    std::cout << "m,n = " << m << n << " result = " << number << " duration " << diff.count() << std::endl;
+    std::cout << "m,n = " << m << n << " result = " << number << " duration " << diff.count() << " seconds" << std::endl;
 
     n = 1;
     start = std::chrono::steady_clock::now();
-    end = std::chrono::steady_clock::now();
     number = ack(m,n);
+    end = std::chrono::steady_clock::now();
     diff = end-start;
-    std::cout << "m,n = " << m << n << " result = " << number << " duration " << diff.count() << std::endl;
+    std::cout << "m,n = " << m << n << " result = " << number << " duration " << diff.count() << " seconds" << std::endl;
 
     n = 2;
     start = std::chrono::steady_clock::now();
-    end = std::chrono::steady_clock::now();
     number = ack(m,n);
-    diff = end-start;
-    std::cout << "m,n = " << m << n << " result = " << number << " duration " << diff.count() << std::endl;
-
-    m = 2;
-    n = 1;
-    start = std::chrono::steady_clock::now();
     end = std::chrono::steady_clock::now();
-    number = ack(m,n);
     diff = end-start;
-    std::cout << "m,n = " << m << n << " result = " << number << " duration " << diff.count() << std::endl;
-
-    m = 2;
-    n = 2;
-    start = std::chrono::steady_clock::now();
-    end = std::chrono::steady_clock::now();
-    number = ack(m,n);
-    diff = end-start;
-    std::cout << "m,n = " << m << n << " result = " << number << " duration " << diff.count() << std::endl;
-
+    std::cout << "m,n = " << m << n << " result = " << number << " duration " << diff.count() << " seconds" << std::endl;
     return 0;
 }
