@@ -10,6 +10,7 @@
 #include <fstream>      // for std::ifstream and std::ofstream
 using std::ifstream;
 using std::ofstream;
+#include <chrono>
 
 template<typename Type>
 void myWrite(ofstream &ofs,Type &val){ofs.write(reinterpret_cast<const char *>(&val),sizeof(Type));};
@@ -39,6 +40,14 @@ int fib_loop(int n){
     }
     return f_i;
 }
+
+int ack(int m, int n);
+
+int ack(int m, int n){
+    if(m == 0){return n+1;}
+    else if(n==0){return ack(m-1,1);}
+    else {return ack(m-1,ack(m,n-1));}
+};
 
 
 
