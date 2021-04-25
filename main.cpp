@@ -1,7 +1,7 @@
 #include <iostream>
 #include "myreadwrite.h"
 
-int main() {
+int whatever() {
     ofstream ofile("numbers.dat");
     double d=13.3;
     myWrite(ofile,d);

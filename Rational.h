@@ -12,11 +12,16 @@
 // _denominator is always > 0
 template<typename T>
 class Rational {
-    friend std::ostream& operator<<(std::ostream &, const Rational &rhs);
-    friend Rational operator+(const Rational &lhs, const Rational &rhs);
-    friend Rational operator-(const Rational &lhs);
-    friend bool operator==(const Rational &lhs, const Rational &rhs);
-    friend bool operator<(const Rational &lhs, const Rational &rhs);
+    template<typename U>
+    friend std::ostream& operator<<(std::ostream &, const Rational<U> &rhs);
+    template<typename U>
+    friend Rational<U> operator+(const Rational<U> &lhs, const Rational<U> &rhs);
+    template<typename U>
+    friend Rational<U> operator-(const Rational<U> &lhs);
+    template<typename U>
+    friend bool operator==(const Rational<U> &lhs, const Rational<U> &rhs);
+    template<typename U>
+    friend bool operator<(const Rational<U> &lhs, const Rational<U> &rhs);
 
 public:
     Rational(T,T=1); //NOLINT(google-explicit-constructor): Allow implicit conversion from int
