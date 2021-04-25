@@ -512,7 +512,6 @@ void test_Rational(Tester & t)
     r += RI(1,6);
     t.test(r==RI(1,3),"After that += 1/6 you get 1/3");
     r /= RI(2,3);
-    std::cout << r << std::endl;
     t.test(r==RI(1,2),"After that /= 2/3 you get 1/2");
     r *= RI(8);
     t.test(r==RI(4),"After that *= 8 you get 4");
@@ -555,6 +554,11 @@ int main() {
                   << std::endl;
     }
     std::cout << std::endl;
+
+    int n = 5;
+    std::cout << "recursive version " << fib(n) << " loop version: " << fib_loop(n) << std::endl;
+    n = 45;
+    std::cout << n << " fib n = " << fib(n) << std::endl;
 
     std::cout << "Press ENTER to quit ";
     while (std::cin.get() != '\n');
